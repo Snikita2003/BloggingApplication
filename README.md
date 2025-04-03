@@ -1,4 +1,7 @@
-# BloggingApplication
+<pre>
+
+
+ # BloggingApplication
 
 A Blogging Application built using Spring Boot allows users to create, read, update, and delete (CRUD) blog posts while managing users, comments, and categories.
 
@@ -21,6 +24,7 @@ Tools: Postman,  Maven
 
 
 Challenges->
+</pre>
 
 1) Efficient Data Retrieval & Pagination
 ->   Implemented pagination and sorting using Spring Data JPA
