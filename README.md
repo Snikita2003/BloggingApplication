@@ -24,10 +24,11 @@ Tools: Postman,  Maven
 
 
 Challenges->
-</pre>
-
+ 
 1) Efficient Data Retrieval & Pagination
 ->   Implemented pagination and sorting using Spring Data JPA
 
  2) Ensuring API Security
 ->  Enabled CORS, used JWT tokens, and restricted API access
+
+</pre>
