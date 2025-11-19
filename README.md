@@ -12,6 +12,7 @@ A complete blogging platform built using Spring Boot with JWT Authentication, Po
 - CRUD on Posts
 - Comments on Posts
 - Like / Unlike Posts
+- Notification System
 - Pagination & Sorting
 - Search Posts
 - Swagger Documentation
