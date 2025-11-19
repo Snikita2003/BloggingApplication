@@ -32,7 +32,7 @@ public class LikeServiceImple implements LikeService {
 	public Like likePost(Integer userId, Integer postId) {
 		
 		 if( likeRepo.existsByUser_UserIdAndPost_PostId(userId, postId)) {
-	            throw new IllegalStateException("User has already liked this post.");
+	            throw new ResourceNotFoundException("User"," already liked this post with user id: ", userId);
 	        }
 		 
 		User user= this.userRepo.findById(userId)
@@ -62,7 +62,7 @@ public class LikeServiceImple implements LikeService {
 		
 		if( !this.likeRepo.existsByUser_UserIdAndPost_PostId(userId, postId) )
 		{
-			 throw new IllegalStateException("User has Not liked this post.");
+			 throw new ResourceNotFoundException("User has Not"," liked this post with user id: ", userId);
 			
 		}
 		

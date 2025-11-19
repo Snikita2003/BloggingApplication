@@ -12,6 +12,7 @@ import com.blog.payloads.CommentDto;
 import com.blog.repositories.CommentRepo;
 import com.blog.repositories.PostRepo;
 import com.blog.service.CommentService;
+import com.blog.service.NotificationService;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -24,6 +25,8 @@ public class CommentServiceImpl implements CommentService {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	@Autowired
+	private NotificationService notificationService;
 	
 	// kya comment karna , kis post pe comment karna h.
 	@Override
@@ -39,6 +42,15 @@ public class CommentServiceImpl implements CommentService {
 
 		comment.setPost(post);
 		Comment savedComment = this.commentRepo.save(comment);
+		
+		notificationService.sendCommentNotification(
+			    comment.getId(),
+			    post.getUser().getUserId(),
+			    postId
+			);
+
+
+		
 		return this.modelMapper.map(savedComment, CommentDto.class);
 	}
 

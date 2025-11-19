@@ -10,5 +10,8 @@ public interface NotificationService {
 
     java.util.List<Notification> getUserNotifications(Integer userId);
 
+
+	Notification sendCommentNotification(Integer senderId, Integer receiverId, Integer postId);
+
 	
 }

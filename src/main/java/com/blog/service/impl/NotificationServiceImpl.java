@@ -30,9 +30,25 @@ public class NotificationServiceImpl implements NotificationService {
 
         return notificationRepo.save(noti);
     }
+    
+    @Override
+    public Notification sendCommentNotification(Integer senderId, Integer receiverId, Integer postId) {
+
+        Notification noti = new Notification();
+        noti.setSenderId(senderId);
+        noti.setReceiverId(receiverId);
+        noti.setPostId(postId);
+        noti.setType("COMMENT");
+        noti.setMessage("Someone commented your post");
+        noti.setIsRead(false);
+        noti.setCreatedAt(LocalDateTime.now());
+
+        return notificationRepo.save(noti);
+    }
 
     @Override
     public List<Notification> getUserNotifications(Integer userId) {
         return notificationRepo.findByReceiverIdOrderByCreatedAtDesc(userId);
     }
+
 }
